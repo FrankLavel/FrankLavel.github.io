@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Francisco Lazo — Desarrollador de Software</title>
+<meta name="description" content="Portafolio de Francisco Gabriel Lazo Velázquez, desarrollador de software: aplicaciones web, móviles y multiplataforma.">
+<style>
+  :root{
+    --navy:#1F3864; --navy2:#2A4C86; --blue:#2E74B5; --ink:#1f2733;
+    --muted:#5b6673; --line:#e6e9ef; --bg:#f6f8fb; --card:#ffffff; --chip:#eef2f8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(31,56,100,.96);backdrop-filter:blur(6px)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  nav .brand{color:#fff;font-weight:700;letter-spacing:.3px}
+  nav .links{display:flex;gap:18px}
+  nav .links a{color:#d6deee;font-size:14px}
+  nav .links a:hover{color:#fff}
+  @media(max-width:560px){nav .links{display:none}}
+
+  /* HERO */
+  header.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:52px 0 46px}
+  .hero-grid{display:flex;align-items:center;gap:30px}
+  .hero img{width:150px;height:182px;object-fit:cover;border-radius:10px;border:3px solid rgba(255,255,255,.18);box-shadow:0 8px 24px rgba(0,0,0,.25);flex:none}
+  .hero h1{margin:0 0 6px;font-size:30px;line-height:1.15}
+  .hero .role{color:#cdd8ee;font-size:15px;font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+  .hero p.lead{color:#dfe6f3;margin:12px 0 18px;max-width:620px;font-size:15px}
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:8px;font-size:14px;font-weight:600;border:1.5px solid transparent;transition:.15s}
+  .btn-primary{background:#fff;color:var(--navy)}
+  .btn-primary:hover{background:#e9eefb}
+  .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  @media(max-width:620px){.hero-grid{flex-direction:column;text-align:center}.hero p.lead{margin-left:auto;margin-right:auto}.btns{justify-content:center}}
+
+  /* SECTIONS */
+  section{padding:46px 0}
+  h2.sec{font-size:22px;color:var(--navy);margin:0 0 4px;display:flex;align-items:center;gap:10px}
+  h2.sec::before{content:"";width:22px;height:3px;background:var(--blue);border-radius:3px}
+  .sec-sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+  .about{font-size:15.5px;color:#2a3340;max-width:820px}
+
+  /* CARDS */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0;overflow:hidden;box-shadow:0 1px 2px rgba(16,30,54,.04);transition:.15s;display:flex;flex-direction:column}
+  .card:hover{box-shadow:0 10px 26px rgba(16,30,54,.10);transform:translateY(-2px)}
+  .thumb{position:relative;height:170px;background:#0f1b33;overflow:hidden}
+  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .thumb.placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef2f8,#dbe4f2);color:#8a97ab;font-size:13px;font-weight:600}
+  .thumb.contain{background:#0f1b33}
+  .thumb.contain img{object-fit:contain}
+  .badge{position:absolute;top:10px;right:10px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+  .badge.done{background:#1f9254}
+  .badge.dev{background:#c7851a}
+  .badge.demo{background:#2E74B5}
+  .card-body{padding:16px 18px 16px;display:flex;flex-direction:column;flex:1}
+  .role{font-size:12.5px;color:var(--muted);margin:0 0 2px}
+  .role b{color:var(--navy)}
+  .card h3{margin:0 0 3px;font-size:17px;color:var(--navy)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+  .chip{background:var(--chip);color:#3a4656;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px}
+  .card p{margin:0 0 14px;font-size:14px;color:#43505f;flex:1}
+  .card .actions{display:flex;flex-wrap:wrap;gap:8px}
+  .lnk{font-size:13px;font-weight:600;padding:6px 12px;border-radius:7px;border:1.5px solid var(--line);color:var(--navy)}
+  .lnk:hover{border-color:var(--blue);color:var(--blue)}
+  .lnk.solid{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .lnk.solid:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+  /* CERTS */
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:720px){.cert-grid{grid-template-columns:1fr}}
+  .cert{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .cert .tag{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--blue)}
+  .cert .tag.soon{color:#b07a00}
+  .cert h4{margin:7px 0 4px;font-size:16px;color:var(--navy)}
+  .cert p{margin:0;font-size:13.5px;color:var(--muted)}
+  .cert-grid.two{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:720px){.cert-grid.two{grid-template-columns:1fr}}
+  .sub-h{font-size:17px;color:var(--navy);margin:26px 0 2px}
+  .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+  @media(max-width:900px){.course-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.course-grid{grid-template-columns:1fr}}
+  .course{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column}
+  .course h5{margin:0 0 4px;font-size:14.5px;color:var(--ink);line-height:1.3}
+  .course .meta{font-size:12px;color:var(--muted);margin-bottom:10px;flex:1}
+  .course a.verlnk{font-size:12.5px;font-weight:700;color:var(--blue);align-self:flex-start}
+  .course a.verlnk:hover{text-decoration:underline}
+  .cert a.verlnk{font-size:12.5px;font-weight:700;color:var(--blue);display:inline-block;margin-top:9px}
+  .cert a.verlnk:hover{text-decoration:underline}
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:720px){.skills{grid-template-columns:1fr}}
+  .skillrow{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .skillrow b{color:var(--navy);font-size:14px}
+  .skillrow span{color:#43505f;font-size:14px}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:#cdd8ee;padding:34px 0;text-align:center}
+  footer a{color:#fff;font-weight:600}
+  footer .fbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  .muted{color:#9fb0cf;font-size:13px;margin-top:8px}
+  .note{background:#fff8e6;border:1px solid #f0e2b8;color:#7a5c00;font-size:13px;padding:10px 14px;border-radius:8px;margin-top:14px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Francisco Lazo</span>
+    <div class="links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#certificaciones">Certificaciones</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <img src="photo.jpg" alt="Francisco Gabriel Lazo Velázquez">
+    <div>
+      <div class="role">Desarrollador de Software</div>
+      <h1>Francisco Gabriel Lazo Velázquez</h1>
+      <p class="lead">Estudiante de Ingeniería en Desarrollo y Gestión de Software (10.º cuatrimestre). Desarrollo aplicaciones web, móviles y multiplataforma: full-stack, PWA y videojuegos.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="CV_Francisco_Lazo_Velazquez.pdf" target="_blank" rel="noopener">Descargar CV</a>
+        <a class="btn btn-ghost" href="https://github.com/FrankLavel" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="mailto:franciscolazo571@gmail.com">Correo</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <h2 class="sec">Sobre mí</h2>
+    <p class="about">He participado en proyectos que abarcan arquitectura full-stack, integración de servicios backend, aplicaciones progresivas (PWA) y desarrollo de videojuegos. Busco integrarme a un equipo de desarrollo para aportar soluciones funcionales, colaborar en proyectos tecnológicos y seguir fortaleciendo mis habilidades. Maravatío, Michoacán, México.</p>
+  </div>
+</section>
+
+<section id="proyectos" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec">Proyectos</h2>
+    <p class="sec-sub">Una selección de lo que he construido.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="img/quickbite.png" alt="Captura de QuickBite" loading="lazy"><span class="badge done">Finalizado</span></div>
+        <div class="card-body">
+          <h3>QuickBite</h3>
+          <div class="role"><b>Rol:</b> <span>Desarrollador</span></div>
+          <div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">Firebase</span><span class="chip">TypeScript</span><span class="chip">npm Workspaces</span></div>
+          <p>Plataforma de pedidos de comida con arquitectura monorepo que integra tres apps (cliente móvil, dashboard del restaurante y app del repartidor) y un paquete compartido como fuente única de verdad, alineado con las Security Rules de Firebase.</p>
+          <div class="actions">
+            <a class="lnk solid" href="https://github.com/FrankLavel/QuickBite" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb contain"><img src="img/civika.jpeg" alt="Captura de Civika" loading="lazy"><span class="badge done">Finalizado</span></div>
+        <div class="card-body">
+          <h3>Civika</h3>
+          <div class="role"><b>Rol:</b> <span>Desarrollador</span></div>
+          <div class="chips"><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">Supabase</span><span class="chip">Capacitor</span><span class="chip">Vite</span></div>
+          <p>Plataforma de servicios ciudadanos: solución web y móvil desde una misma base de código para trámites y servicios, con backend en Supabase y empaquetado para Android mediante Capacitor.</p>
+          <div class="actions">
+            <a class="lnk solid" href="https://github.com/FrankLavel/civika" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="img/guardianes.png" alt="Captura de Guardianes del Último Ecosistema" loading="lazy"><span class="badge demo">Demo disponible</span></div>
+        <div class="card-body">
+          <h3>Guardianes del Último Ecosistema</h3>
+          <div class="role"><b>Rol:</b> <span>Desarrollador</span></div>
+          <div class="chips"><span class="chip">Godot 4</span><span class="chip">GDScript</span><span class="chip">Construct 2</span><span class="chip">PWA</span><span class="chip">Python</span></div>
+          <p>Videojuego educativo ambiental 2D en Godot 4, con shaders propios, 14 especies y suite de pruebas. Incluye una PWA instalable y offline, y versiones para Windows (.zip) y Android (.apk).</p>
+          <div class="actions">
+            <a class="lnk solid" href="https://franklavel.github.io/PWA_Guardianes/" target="_blank" rel="noopener">Ver demo</a>
+            <a class="lnk" href="https://github.com/FrankLavel/Guardianes_Ecosistema" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="img/tidigital.png" alt="Captura de TI Digital" loading="lazy"><span class="badge demo">Demo disponible</span></div>
+        <div class="card-body">
+          <h3>TI Digital</h3>
+          <div class="role"><b>Rol:</b> <span>Desarrollador</span></div>
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Service Worker</span><span class="chip">Web App Manifest</span></div>
+          <p>PWA de orientación académica para nuevos estudiantes de Ingeniería en TI: mapa curricular interactivo de 58 unidades con búsqueda y filtros, test vocacional y seguimiento del avance, instalable y offline.</p>
+          <div class="actions">
+            <a class="lnk solid" href="https://franklavel.github.io/landing-carrera-pwa/" target="_blank" rel="noopener">Ver demo</a>
+            <a class="lnk" href="https://github.com/FrankLavel/landing-carrera-pwa" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="img/painally.png" alt="Captura del sitio Painally Xpress" loading="lazy"><span class="badge done">Finalizado</span></div>
+        <div class="card-body">
+          <h3>Painally Xpress</h3>
+          <div class="role"><b>Rol:</b> <span>Colaborador</span></div>
+          <div class="chips"><span class="chip">WordPress</span><span class="chip">Elementor</span><span class="chip">SEO</span></div>
+          <p>Sitio web empresarial para servicios de paquetería nacional e internacional, con secciones informativas, diseño responsivo y criterios básicos de SEO.</p>
+          <div class="actions">
+            <a class="lnk solid" href="https://painallyxpress.com/" target="_blank" rel="noopener">Ver sitio</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certificaciones" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec">Certificaciones y logros</h2>
+    <p class="sec-sub">Participaciones, reconocimientos y formación continua.</p>
+    <div class="cert-grid two">
+
+      <div class="cert">
+        <div class="tag">Participación</div>
+        <h4>Innovation Fest</h4>
+        <p>Participante en las ediciones 2025 y 2026.</p>
+        <a class="verlnk" href="constancia-innovation-fest.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="cert">
+        <div class="tag">Participación</div>
+        <h4>FEMICI</h4>
+        <p>Constancia de participación <span style="color:#b07a00;font-weight:600">(próximamente)</span>.</p>
+      </div>
+
+    </div>
+
+    <h3 class="sub-h">Cursos y constancias</h3>
+    <p class="sec-sub">Formación en «Capacítate para el Empleo» (Fundación Carlos Slim) — 9 cursos completados al 100%.</p>
+    <div class="course-grid">
+
+      <div class="course">
+        <h5>Diseñador de experiencia de usuario (UX)</h5>
+        <div class="meta">Capacítate para el Empleo · 51 h · 2025</div>
+        <a class="verlnk" href="1e45e474-2495-4ed9-a3fd-a10beb2f3d64_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Desarrollador de sitios web responsivos</h5>
+        <div class="meta">Capacítate para el Empleo · 62 h · 2026</div>
+        <a class="verlnk" href="50be8f86-4f8d-4ec0-9395-7dfeac32372a_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Desarrollo móvil en línea</h5>
+        <div class="meta">Capacítate para el Empleo · 50 h · 2024</div>
+        <a class="verlnk" href="4904d30c-24a8-47ba-aa31-0b791f973019_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Desarrollador de contenido digital</h5>
+        <div class="meta">Capacítate para el Empleo · 65 h · 2026</div>
+        <a class="verlnk" href="46cdeb40-4bb6-46c5-84f8-8e1face763bd_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Administrador de bases de datos</h5>
+        <div class="meta">Capacítate para el Empleo · 83 h · 2026</div>
+        <a class="verlnk" href="7e3341fc-7481-4708-a093-efd2b242707d_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Administrador de bases de datos no relacionales</h5>
+        <div class="meta">Capacítate para el Empleo · 76 h · 2026</div>
+        <a class="verlnk" href="3868e16b-1bf7-49f9-a0e3-f46c645c864a_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Introducción a realidad virtual, aumentada y mixta</h5>
+        <div class="meta">Capacítate para el Empleo · 44 h · 2025</div>
+        <a class="verlnk" href="a35159cd-b3b6-4771-bf02-04351d358313_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Fundamentos de electrónica digital</h5>
+        <div class="meta">Capacítate para el Empleo · 39 h · 2024</div>
+        <a class="verlnk" href="652254b7-8822-4fd5-9525-53c7601183bc_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+      <div class="course">
+        <h5>Fundamentos de electrónica analógica</h5>
+        <div class="meta">Capacítate para el Empleo · 58 h · 2024</div>
+        <a class="verlnk" href="ddfbf3c4-d84f-4821-b7dd-9aa31c131aee_certificado.pdf" target="_blank" rel="noopener">Ver constancia →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="habilidades" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec">Habilidades técnicas</h2>
+    <p class="sec-sub">Tecnologías con las que trabajo.</p>
+    <div class="skills">
+      <div class="skillrow"><b>Lenguajes:</b> <span>JavaScript, TypeScript, Kotlin, Python, GDScript</span></div>
+      <div class="skillrow"><b>Frontend:</b> <span>React, React Native, HTML5, CSS3, Tailwind CSS</span></div>
+      <div class="skillrow"><b>Backend y datos:</b> <span>Node.js, Firebase, Supabase, MongoDB</span></div>
+      <div class="skillrow"><b>Desarrollo móvil:</b> <span>Expo, Capacitor</span></div>
+      <div class="skillrow"><b>Herramientas:</b> <span>Git, GitHub, Vite, npm Workspaces, PWA, Service Workers</span></div>
+      <div class="skillrow"><b>Videojuegos:</b> <span>Godot 4, Construct 2</span></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="fbtns">
+      <a class="btn btn-ghost" href="https://github.com/FrankLavel" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="mailto:franciscolazo571@gmail.com">franciscolazo571@gmail.com</a>
+      <a class="btn btn-ghost" href="CV_Francisco_Lazo_Velazquez.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+    <div>Español: Nativo &nbsp;·&nbsp; Inglés: Básico (A1–A2)</div>
+    <div class="muted">© <span id="y"></span> Francisco Gabriel Lazo Velázquez — Maravatío, Michoacán, México</div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
